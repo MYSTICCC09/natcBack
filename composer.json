@@ -1,0 +1,7 @@
+{
+    "name": "Ohmel",
+    "require": {
+        "codeception/codeception": "dev-master",
+        "starship/restfullyii": "dev-master"
+    }
+}

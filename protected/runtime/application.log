@@ -1,0 +1,1180 @@
+2021/03/27 09:39:54 [error] [exception.CHttpException.503: Forbidden or Login Failed!] CHttpException: Username or Password is invalid or you're not registered in C:\xampp\htdocs\icms\protected\components\UserIdentity.php:38
+Stack trace:
+#0 C:\xampp\htdocs\icms\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#1 C:\xampp\htdocs\yii\framework\validators\CInlineValidator.php(43): LoginForm->authenticate('password', Array)
+#2 C:\xampp\htdocs\yii\framework\validators\CValidator.php(197): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#3 C:\xampp\htdocs\yii\framework\base\CModel.php(158): CValidator->validate(Object(LoginForm), Array)
+#4 C:\xampp\htdocs\icms\protected\controllers\SiteController.php(186): CModel->validate()
+#5 C:\xampp\htdocs\icms\protected\controllers\SiteController.php(260): SiteController->login(Array)
+#6 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php(170): SiteController->{closure}(Array, NULL, NULL)
+#7 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php(109): Eventor->emit('req.post.login....', Array)
+#8 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest('req.post.login....', Array)
+#9 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(36): CComponent->__call('emitRest', Array)
+#10 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestPOST->{closure}(Array, Array)
+#11 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(50): ERestBaseAction->finalRender(Object(Closure))
+#12 [internal function]: EActionRestPOST->run('login', NULL, NULL)
+#13 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(EActionRestPOST), Array)
+#14 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(73): CAction->runWithParamsInternal(Object(EActionRestPOST), Object(ReflectionMethod), Array)
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(309): CAction->runWithParams(Array)
+#16 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestPOST))
+#17 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(39): ERestFilter->preFilter(Object(CFilterChain))
+#19 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#21 C:\xampp\htdocs\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(EActionRestPOST), Array)
+#22 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('REST.POST')
+#23 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('site/REST.POST')
+#24 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#25 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/icms/index.php/api/site/login
+HTTP_REFERER=http://192.168.1.11/ufmdel/
+---
+2021/03/29 07:30:27 [error] [exception.CHttpException.503: Forbidden or Login Failed!] CHttpException: Username or Password is invalid or you're not registered in C:\xampp\htdocs\icms\protected\components\UserIdentity.php:38
+Stack trace:
+#0 C:\xampp\htdocs\icms\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#1 C:\xampp\htdocs\yii\framework\validators\CInlineValidator.php(43): LoginForm->authenticate('password', Array)
+#2 C:\xampp\htdocs\yii\framework\validators\CValidator.php(197): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#3 C:\xampp\htdocs\yii\framework\base\CModel.php(158): CValidator->validate(Object(LoginForm), Array)
+#4 C:\xampp\htdocs\icms\protected\controllers\SiteController.php(186): CModel->validate()
+#5 C:\xampp\htdocs\icms\protected\controllers\SiteController.php(260): SiteController->login(Array)
+#6 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php(170): SiteController->{closure}(Array, NULL, NULL)
+#7 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php(109): Eventor->emit('req.post.login....', Array)
+#8 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest('req.post.login....', Array)
+#9 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(36): CComponent->__call('emitRest', Array)
+#10 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestPOST->{closure}(Array, Array)
+#11 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(50): ERestBaseAction->finalRender(Object(Closure))
+#12 [internal function]: EActionRestPOST->run('login', NULL, NULL)
+#13 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(EActionRestPOST), Array)
+#14 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(73): CAction->runWithParamsInternal(Object(EActionRestPOST), Object(ReflectionMethod), Array)
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(309): CAction->runWithParams(Array)
+#16 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestPOST))
+#17 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(39): ERestFilter->preFilter(Object(CFilterChain))
+#19 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#21 C:\xampp\htdocs\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(EActionRestPOST), Array)
+#22 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('REST.POST')
+#23 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('site/REST.POST')
+#24 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#25 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/icms/index.php/api/site/login
+HTTP_REFERER=http://localhost/ufmseller/
+---
+2021/03/30 15:12:52 [error] [exception.CHttpException.503: Forbidden or Login Failed!] CHttpException: Username or Password is invalid or you're not registered in C:\xampp\htdocs\icms\protected\components\UserIdentity.php:38
+Stack trace:
+#0 C:\xampp\htdocs\icms\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#1 C:\xampp\htdocs\yii\framework\validators\CInlineValidator.php(43): LoginForm->authenticate('password', Array)
+#2 C:\xampp\htdocs\yii\framework\validators\CValidator.php(197): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#3 C:\xampp\htdocs\yii\framework\base\CModel.php(158): CValidator->validate(Object(LoginForm), Array)
+#4 C:\xampp\htdocs\icms\protected\controllers\SiteController.php(186): CModel->validate()
+#5 C:\xampp\htdocs\icms\protected\controllers\SiteController.php(260): SiteController->login(Array)
+#6 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php(170): SiteController->{closure}(Array, NULL, NULL)
+#7 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php(109): Eventor->emit('req.post.login....', Array)
+#8 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest('req.post.login....', Array)
+#9 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(36): CComponent->__call('emitRest', Array)
+#10 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestPOST->{closure}(Array, Array)
+#11 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(50): ERestBaseAction->finalRender(Object(Closure))
+#12 [internal function]: EActionRestPOST->run('login', NULL, NULL)
+#13 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(EActionRestPOST), Array)
+#14 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(73): CAction->runWithParamsInternal(Object(EActionRestPOST), Object(ReflectionMethod), Array)
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(309): CAction->runWithParams(Array)
+#16 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestPOST))
+#17 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(39): ERestFilter->preFilter(Object(CFilterChain))
+#19 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(292): CFilterChain->run()
+#21 C:\xampp\htdocs\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(EActionRestPOST), Array)
+#22 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CController->run('REST.POST')
+#23 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('site/REST.POST')
+#24 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#25 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/icms/index.php/api/site/login
+HTTP_REFERER=http://localhost/ufmseller/
+---
+2021/03/31 14:52:12 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrders
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:52:19 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrders
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:52:37 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrdersQuoted
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:52:39 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrdersQuoted
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:52:50 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrdersQuoted
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:52:57 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrders
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:52:59 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrders
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:54:03 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrders
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:54:04 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrders
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:54:17 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrdersQuoted
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:54:19 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrdersQuoted
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:54:27 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrdersQuoted
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:55:15 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrdersQuoted
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:55:22 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrders
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:55:23 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrders
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:55:28 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrdersQuoted
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:55:30 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrdersQuoted
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:55:45 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrders
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:56:22 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrders
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:56:23 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrders
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:58:23 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrdersQuoted
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/03/31 14:58:41 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "seller/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('seller/REST.GET')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/icms/index.php/api/seller/getOrdersQuoted
+HTTP_REFERER=http://192.168.0.175/ufmseller/
+---
+2021/09/05 07:24:54 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gramono_db.users' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `users`.
+in C:\xampp\htdocs\icms\protected\components\UserIdentity.php (26)
+in C:\xampp\htdocs\icms\protected\models\LoginForm.php (52)
+in C:\xampp\htdocs\icms\protected\controllers\SiteController.php (186)
+2021/09/05 07:24:54 [error] [exception.CDbException] CDbException: The table "users" for active record class "Users" cannot be found in the database. in C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php:2390
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(413): CActiveRecordMetaData->__construct(Object(Users))
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(663): CActiveRecord->getMetaData()
+#2 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1358): CActiveRecord->getTableSchema()
+#3 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1464): CActiveRecord->query(Object(CDbCriteria))
+#4 C:\xampp\htdocs\icms\protected\components\UserIdentity.php(26): CActiveRecord->find('user_name=:user...', Array)
+#5 C:\xampp\htdocs\icms\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#6 C:\xampp\htdocs\yii\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#7 C:\xampp\htdocs\yii\framework\validators\CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#8 C:\xampp\htdocs\yii\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), Array)
+#9 C:\xampp\htdocs\icms\protected\controllers\SiteController.php(186): CModel->validate()
+#10 C:\xampp\htdocs\icms\protected\controllers\SiteController.php(260): SiteController->login(Array)
+#11 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php(170): SiteController->{closure}(Array, NULL, NULL)
+#12 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php(109): Eventor->emit('req.post.login....', Array)
+#13 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest('req.post.login....', Array)
+#14 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(36): CComponent->__call('emitRest', Array)
+#15 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestPOST->{closure}(Array, Array)
+#16 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(50): ERestBaseAction->finalRender(Object(Closure))
+#17 [internal function]: EActionRestPOST->run('login', NULL, NULL)
+#18 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs(Object(EActionRestPOST), Array)
+#19 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): CAction->runWithParamsInternal(Object(EActionRestPOST), Object(ReflectionMethod), Array)
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#21 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestPOST))
+#22 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#23 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter(Object(CFilterChain))
+#24 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#25 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#26 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(EActionRestPOST), Array)
+#27 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('REST.POST')
+#28 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/REST.POST')
+#29 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#30 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#31 {main}
+REQUEST_URI=/icms/index.php/api/site/login
+HTTP_REFERER=http://localhost/cms/
+---
+2021/09/06 15:46:36 [error] [exception.CHttpException.404] CHttpException: Resource Not Found in C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php:56
+Stack trace:
+#0 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestGET->{closure}(Array, Array)
+#1 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(58): ERestBaseAction->finalRender(Object(Closure))
+#2 [internal function]: EActionRestGET->run('jobList', NULL, NULL)
+#3 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs(Object(EActionRestGET), Array)
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): CAction->runWithParamsInternal(Object(EActionRestGET), Object(ReflectionMethod), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestGET))
+#7 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(EActionRestGET), Array)
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('REST.GET')
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/REST.GET')
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/icms/index.php/api/site/jobList
+HTTP_REFERER=http://localhost/loyks/
+---
+2021/09/07 04:01:21 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gramono_db.products' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `products`.
+in C:\xampp\htdocs\icms\protected\controllers\SiteController.php (208)
+in C:\xampp\htdocs\icms\protected\controllers\SiteController.php (269)
+in C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php (170)
+2021/09/07 04:01:21 [error] [exception.CDbException] CDbException: The table "products" for active record class "Products" cannot be found in the database. in C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php:2390
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(413): CActiveRecordMetaData->__construct(Object(Products))
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
+#2 C:\xampp\htdocs\icms\protected\controllers\SiteController.php(208): CActiveRecord->__construct()
+#3 C:\xampp\htdocs\icms\protected\controllers\SiteController.php(269): SiteController->productListFront()
+#4 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php(170): SiteController->{closure}(NULL, NULL)
+#5 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php(109): Eventor->emit('req.get.product...', Array)
+#6 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest('req.get.product...', Array)
+#7 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(38): CComponent->__call('emitRest', Array)
+#8 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestGET->{closure}(Array, Array)
+#9 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(58): ERestBaseAction->finalRender(Object(Closure))
+#10 [internal function]: EActionRestGET->run('productListFron...', NULL, NULL)
+#11 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs(Object(EActionRestGET), Array)
+#12 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): CAction->runWithParamsInternal(Object(EActionRestGET), Object(ReflectionMethod), Array)
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestGET))
+#15 C:\xampp\htdocs\icms\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter(Object(CFilterChain))
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(EActionRestGET), Array)
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('REST.GET')
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/REST.GET')
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\icms\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/icms/index.php/api/site/productListFront
+HTTP_REFERER=http://localhost/gramono/products.html
+---
+2021/11/08 13:20:42 [error] [php] Undefined index: password (C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php:183)
+Stack trace:
+#0 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php(109): Eventor->emit()
+#1 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest()
+#2 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(36): SiteController->__call()
+#3 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestPOST->{closure}()
+#4 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(50): EActionRestPOST->finalRender()
+#5 unknown(0): EActionRestPOST->run()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs()
+#7 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): EActionRestPOST->runWithParamsInternal()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(308): EActionRestPOST->runWithParams()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): SiteController->runAction()
+#10 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter()
+#12 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): ERestFilter->filter()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#16 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#17 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\natcBack\index.php(13): CWebApplication->run()
+REQUEST_URI=/natcBack/index.php/api/site/login
+in C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php (183)
+in C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php (260)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php (170)
+2021/11/08 13:21:36 [error] [exception.CHttpException.503: Forbidden or Login Failed!] CHttpException: Username or Password is invalid or you're not registered in C:\xampp\htdocs\natcBack\protected\components\UserIdentity.php:24
+Stack trace:
+#0 C:\xampp\htdocs\natcBack\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#1 C:\xampp\htdocs\yii\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#2 C:\xampp\htdocs\yii\framework\validators\CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#3 C:\xampp\htdocs\yii\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), Array)
+#4 C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php(186): CModel->validate()
+#5 C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php(261): SiteController->login(Array)
+#6 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php(170): SiteController->{closure}(Array, NULL, NULL)
+#7 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php(109): Eventor->emit('req.post.login....', Array)
+#8 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest('req.post.login....', Array)
+#9 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(36): CComponent->__call('emitRest', Array)
+#10 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestPOST->{closure}(Array, Array)
+#11 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(50): ERestBaseAction->finalRender(Object(Closure))
+#12 [internal function]: EActionRestPOST->run('login', NULL, NULL)
+#13 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs(Object(EActionRestPOST), Array)
+#14 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): CAction->runWithParamsInternal(Object(EActionRestPOST), Object(ReflectionMethod), Array)
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#16 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestPOST))
+#17 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter(Object(CFilterChain))
+#19 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#21 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(EActionRestPOST), Array)
+#22 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('REST.POST')
+#23 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/REST.POST')
+#24 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#25 C:\xampp\htdocs\natcBack\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/natcBack/index.php/api/site/login
+HTTP_REFERER=http://localhost/natc/dispatching.html
+---
+2021/11/08 13:22:34 [error] [exception.CException] CException: Property "NatcUsers.user_name" is not defined. in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('user_name')
+#1 C:\xampp\htdocs\natcBack\protected\components\UserIdentity.php(27): CActiveRecord->__get('user_name')
+#2 C:\xampp\htdocs\natcBack\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#3 C:\xampp\htdocs\yii\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#4 C:\xampp\htdocs\yii\framework\validators\CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#5 C:\xampp\htdocs\yii\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), Array)
+#6 C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php(186): CModel->validate()
+#7 C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php(261): SiteController->login(Array)
+#8 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php(170): SiteController->{closure}(Array, NULL, NULL)
+#9 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php(109): Eventor->emit('req.post.login....', Array)
+#10 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest('req.post.login....', Array)
+#11 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(36): CComponent->__call('emitRest', Array)
+#12 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestPOST->{closure}(Array, Array)
+#13 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(50): ERestBaseAction->finalRender(Object(Closure))
+#14 [internal function]: EActionRestPOST->run('login', NULL, NULL)
+#15 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs(Object(EActionRestPOST), Array)
+#16 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): CAction->runWithParamsInternal(Object(EActionRestPOST), Object(ReflectionMethod), Array)
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestPOST))
+#19 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter(Object(CFilterChain))
+#21 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#22 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#23 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(EActionRestPOST), Array)
+#24 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('REST.POST')
+#25 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/REST.POST')
+#26 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#27 C:\xampp\htdocs\natcBack\index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/natcBack/index.php/api/site/login
+HTTP_REFERER=http://localhost/natc/dispatching.html
+---
+2021/11/08 13:22:38 [error] [exception.CException] CException: Property "NatcUsers.user_name" is not defined. in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('user_name')
+#1 C:\xampp\htdocs\natcBack\protected\components\UserIdentity.php(27): CActiveRecord->__get('user_name')
+#2 C:\xampp\htdocs\natcBack\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#3 C:\xampp\htdocs\yii\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#4 C:\xampp\htdocs\yii\framework\validators\CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#5 C:\xampp\htdocs\yii\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), Array)
+#6 C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php(186): CModel->validate()
+#7 C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php(261): SiteController->login(Array)
+#8 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php(170): SiteController->{closure}(Array, NULL, NULL)
+#9 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php(109): Eventor->emit('req.post.login....', Array)
+#10 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest('req.post.login....', Array)
+#11 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(36): CComponent->__call('emitRest', Array)
+#12 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestPOST->{closure}(Array, Array)
+#13 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(50): ERestBaseAction->finalRender(Object(Closure))
+#14 [internal function]: EActionRestPOST->run('login', NULL, NULL)
+#15 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs(Object(EActionRestPOST), Array)
+#16 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): CAction->runWithParamsInternal(Object(EActionRestPOST), Object(ReflectionMethod), Array)
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestPOST))
+#19 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter(Object(CFilterChain))
+#21 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#22 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#23 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(EActionRestPOST), Array)
+#24 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('REST.POST')
+#25 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/REST.POST')
+#26 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#27 C:\xampp\htdocs\natcBack\index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/natcBack/index.php/api/site/login
+HTTP_REFERER=http://localhost/natc/dispatching.html
+---
+2021/11/08 13:23:27 [error] [exception.CException] CException: Property "NatcUsers.user_name" is not defined. in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('user_name')
+#1 C:\xampp\htdocs\natcBack\protected\components\UserIdentity.php(27): CActiveRecord->__get('user_name')
+#2 C:\xampp\htdocs\natcBack\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#3 C:\xampp\htdocs\yii\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#4 C:\xampp\htdocs\yii\framework\validators\CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#5 C:\xampp\htdocs\yii\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), Array)
+#6 C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php(186): CModel->validate()
+#7 C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php(261): SiteController->login(Array)
+#8 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php(170): SiteController->{closure}(Array, NULL, NULL)
+#9 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php(109): Eventor->emit('req.post.login....', Array)
+#10 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest('req.post.login....', Array)
+#11 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(36): CComponent->__call('emitRest', Array)
+#12 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestPOST->{closure}(Array, Array)
+#13 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(50): ERestBaseAction->finalRender(Object(Closure))
+#14 [internal function]: EActionRestPOST->run('login', NULL, NULL)
+#15 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs(Object(EActionRestPOST), Array)
+#16 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): CAction->runWithParamsInternal(Object(EActionRestPOST), Object(ReflectionMethod), Array)
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestPOST))
+#19 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter(Object(CFilterChain))
+#21 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#22 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#23 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(EActionRestPOST), Array)
+#24 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('REST.POST')
+#25 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/REST.POST')
+#26 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#27 C:\xampp\htdocs\natcBack\index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/natcBack/index.php/api/site/login
+HTTP_REFERER=http://localhost/natc/dispatching.html
+---
+2021/11/08 13:24:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'natc_db.users' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `users`.
+in C:\xampp\htdocs\natcBack\protected\components\MyWebUser.php (7)
+in C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php (190)
+in C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php (261)
+2021/11/08 13:24:00 [error] [exception.CDbException] CDbException: The table "users" for active record class "Users" cannot be found in the database. in C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php:2390
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(413): CActiveRecordMetaData->__construct(Object(Users))
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(663): CActiveRecord->getMetaData()
+#2 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1493): CActiveRecord->getTableSchema()
+#3 C:\xampp\htdocs\natcBack\protected\components\MyWebUser.php(7): CActiveRecord->findByPk('1')
+#4 C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php(190): MyWebUser->getUser('userId')
+#5 C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php(261): SiteController->login(Array)
+#6 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php(170): SiteController->{closure}(Array, NULL, NULL)
+#7 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php(109): Eventor->emit('req.post.login....', Array)
+#8 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest('req.post.login....', Array)
+#9 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(36): CComponent->__call('emitRest', Array)
+#10 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestPOST->{closure}(Array, Array)
+#11 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(50): ERestBaseAction->finalRender(Object(Closure))
+#12 [internal function]: EActionRestPOST->run('login', NULL, NULL)
+#13 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs(Object(EActionRestPOST), Array)
+#14 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): CAction->runWithParamsInternal(Object(EActionRestPOST), Object(ReflectionMethod), Array)
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#16 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestPOST))
+#17 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter(Object(CFilterChain))
+#19 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#21 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(EActionRestPOST), Array)
+#22 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('REST.POST')
+#23 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/REST.POST')
+#24 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#25 C:\xampp\htdocs\natcBack\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/natcBack/index.php/api/site/login
+HTTP_REFERER=http://localhost/natc/dispatching.html
+---
+2021/11/08 13:24:08 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'natc_db.users' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `users`.
+in C:\xampp\htdocs\natcBack\protected\components\MyWebUser.php (7)
+in C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php (190)
+in C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php (261)
+2021/11/08 13:24:08 [error] [exception.CDbException] CDbException: The table "users" for active record class "Users" cannot be found in the database. in C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php:2390
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(413): CActiveRecordMetaData->__construct(Object(Users))
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(663): CActiveRecord->getMetaData()
+#2 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1493): CActiveRecord->getTableSchema()
+#3 C:\xampp\htdocs\natcBack\protected\components\MyWebUser.php(7): CActiveRecord->findByPk('1')
+#4 C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php(190): MyWebUser->getUser('userId')
+#5 C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php(261): SiteController->login(Array)
+#6 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php(170): SiteController->{closure}(Array, NULL, NULL)
+#7 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php(109): Eventor->emit('req.post.login....', Array)
+#8 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest('req.post.login....', Array)
+#9 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(36): CComponent->__call('emitRest', Array)
+#10 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestPOST->{closure}(Array, Array)
+#11 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(50): ERestBaseAction->finalRender(Object(Closure))
+#12 [internal function]: EActionRestPOST->run('login', NULL, NULL)
+#13 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs(Object(EActionRestPOST), Array)
+#14 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): CAction->runWithParamsInternal(Object(EActionRestPOST), Object(ReflectionMethod), Array)
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#16 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestPOST))
+#17 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter(Object(CFilterChain))
+#19 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#21 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(EActionRestPOST), Array)
+#22 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('REST.POST')
+#23 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/REST.POST')
+#24 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#25 C:\xampp\htdocs\natcBack\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/natcBack/index.php/api/site/login
+HTTP_REFERER=http://localhost/natc/dispatching.html
+---
+2021/11/08 13:24:37 [error] [exception.CException] CException: Property "NatcUsers.user_name" is not defined. in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('user_name')
+#1 C:\xampp\htdocs\natcBack\protected\components\MyWebUser.php(16): CActiveRecord->__get('user_name')
+#2 C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php(234): MyWebUser->getUser('userName')
+#3 C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php(264): SiteController->checkLogin()
+#4 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php(170): SiteController->{closure}(NULL, NULL)
+#5 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php(109): Eventor->emit('req.get.checkLo...', Array)
+#6 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest('req.get.checkLo...', Array)
+#7 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(38): CComponent->__call('emitRest', Array)
+#8 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestGET->{closure}(Array, Array)
+#9 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(58): ERestBaseAction->finalRender(Object(Closure))
+#10 [internal function]: EActionRestGET->run('checkLogin', NULL, NULL)
+#11 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs(Object(EActionRestGET), Array)
+#12 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): CAction->runWithParamsInternal(Object(EActionRestGET), Object(ReflectionMethod), Array)
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestGET))
+#15 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter(Object(CFilterChain))
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(EActionRestGET), Array)
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('REST.GET')
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/REST.GET')
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\natcBack\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/natcBack/index.php/api/site/checkLogin
+HTTP_REFERER=http://localhost/natc/dispatching.html
+---
+2021/11/09 04:49:07 [error] [exception.CHttpException.404] CHttpException: Resource Not Found in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php:56
+Stack trace:
+#0 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestGET->{closure}(Array, Array)
+#1 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(58): ERestBaseAction->finalRender(Object(Closure))
+#2 [internal function]: EActionRestGET->run('vehiclesList', NULL, NULL)
+#3 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs(Object(EActionRestGET), Array)
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): CAction->runWithParamsInternal(Object(EActionRestGET), Object(ReflectionMethod), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestGET))
+#7 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(EActionRestGET), Array)
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('REST.GET')
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('driverAndVehicl...')
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\natcBack\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/natcBack/index.php/api/driverAndVehicles/vehiclesList
+HTTP_REFERER=http://localhost/natc/dispatching.html
+---
+2021/11/09 04:49:58 [error] [exception.CHttpException.404] CHttpException: Resource Not Found in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php:56
+Stack trace:
+#0 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestGET->{closure}(Array, Array)
+#1 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(58): ERestBaseAction->finalRender(Object(Closure))
+#2 [internal function]: EActionRestGET->run('vehiclesList', NULL, NULL)
+#3 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs(Object(EActionRestGET), Array)
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): CAction->runWithParamsInternal(Object(EActionRestGET), Object(ReflectionMethod), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestGET))
+#7 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(EActionRestGET), Array)
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('REST.GET')
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('driverAndVehicl...')
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\natcBack\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/natcBack/index.php/api/driverAndVehicles/vehiclesList
+HTTP_REFERER=http://localhost/natc/dispatching.html
+---
+2021/11/09 04:53:28 [error] [exception.CHttpException.404] CHttpException: Resource Not Found in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php:56
+Stack trace:
+#0 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestGET->{closure}(Array, Array)
+#1 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(58): ERestBaseAction->finalRender(Object(Closure))
+#2 [internal function]: EActionRestGET->run('vehiclesList', NULL, NULL)
+#3 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs(Object(EActionRestGET), Array)
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): CAction->runWithParamsInternal(Object(EActionRestGET), Object(ReflectionMethod), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestGET))
+#7 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(EActionRestGET), Array)
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('REST.GET')
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('driverAndVehicl...')
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\natcBack\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/natcBack/index.php/api/driverAndVehicles/vehiclesList
+HTTP_REFERER=http://localhost/natc/dispatching.html
+---
+2021/11/09 04:53:53 [error] [exception.CHttpException.404] CHttpException: Resource Not Found in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php:56
+Stack trace:
+#0 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestGET->{closure}(Array, Array)
+#1 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(58): ERestBaseAction->finalRender(Object(Closure))
+#2 [internal function]: EActionRestGET->run('vehiclesList', NULL, NULL)
+#3 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs(Object(EActionRestGET), Array)
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): CAction->runWithParamsInternal(Object(EActionRestGET), Object(ReflectionMethod), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestGET))
+#7 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(EActionRestGET), Array)
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('REST.GET')
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('driverAndVehicl...')
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\natcBack\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/natcBack/index.php/api/driverAndVehicles/vehiclesList
+HTTP_REFERER=http://localhost/natc/dispatching.html
+---
+2021/11/09 04:56:13 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'driver_id' in 'order clause'. The SQL statement executed was: SELECT * FROM `natc_vehicles` `t` WHERE 1=1 order by driver_id desc limit 12.
+in C:\xampp\htdocs\natcBack\protected\controllers\DriverAndVehiclesController.php (27)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php (170)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php (109)
+2021/11/09 04:56:13 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'driver_id' in 'order clause'. The SQL statement executed was: SELECT * FROM `natc_vehicles` `t` WHERE 1=1 order by driver_id desc limit 12 in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1359): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1478): CActiveRecord->query(Object(CDbCriteria), true)
+#3 C:\xampp\htdocs\natcBack\protected\controllers\DriverAndVehiclesController.php(27): CActiveRecord->findAll('1=1 order by dr...')
+#4 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php(170): DriverAndVehiclesController->{closure}(NULL, NULL)
+#5 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php(109): Eventor->emit('req.get.vehicle...', Array)
+#6 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest('req.get.vehicle...', Array)
+#7 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(38): CComponent->__call('emitRest', Array)
+#8 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestGET->{closure}(Array, Array)
+#9 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(58): ERestBaseAction->finalRender(Object(Closure))
+#10 [internal function]: EActionRestGET->run('vehiclesList', NULL, NULL)
+#11 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs(Object(EActionRestGET), Array)
+#12 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): CAction->runWithParamsInternal(Object(EActionRestGET), Object(ReflectionMethod), Array)
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestGET))
+#15 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter(Object(CFilterChain))
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(EActionRestGET), Array)
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('REST.GET')
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('driverAndVehicl...')
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\natcBack\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/natcBack/index.php/api/driverAndVehicles/vehiclesList
+HTTP_REFERER=http://localhost/natc/dispatching.html
+---
+2021/11/09 14:45:05 [error] [exception.CException] CException: Property "NatcVehicleDriver.assign_status" is not defined. in C:\xampp\htdocs\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(162): CComponent->__set('assign_status', 'free')
+#1 C:\xampp\htdocs\natcBack\protected\controllers\DriverAndVehiclesController.php(64): CActiveRecord->__set('assign_status', 'free')
+#2 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php(170): DriverAndVehiclesController->{closure}(NULL, NULL)
+#3 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php(109): Eventor->emit('req.get.revokeV...', Array)
+#4 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest('req.get.revokeV...', Array)
+#5 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(38): CComponent->__call('emitRest', Array)
+#6 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestGET->{closure}(Array, Array)
+#7 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(58): ERestBaseAction->finalRender(Object(Closure))
+#8 [internal function]: EActionRestGET->run('revokeVehicle', NULL, NULL)
+#9 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs(Object(EActionRestGET), Array)
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): CAction->runWithParamsInternal(Object(EActionRestGET), Object(ReflectionMethod), Array)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#12 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestGET))
+#13 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(EActionRestGET), Array)
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('REST.GET')
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('driverAndVehicl...')
+#20 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\natcBack\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/natcBack/index.php/api/driverAndVehicles/revokeVehicle?driverId=2
+HTTP_REFERER=http://localhost/natc/dispatching.html
+---
+2021/11/09 14:45:37 [error] [exception.CHttpException.500] CHttpException: Unable to Assign this Vehicle to Driver in C:\xampp\htdocs\natcBack\protected\controllers\DriverAndVehiclesController.php:68
+Stack trace:
+#0 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php(170): DriverAndVehiclesController->{closure}(NULL, NULL)
+#1 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php(109): Eventor->emit('req.get.revokeV...', Array)
+#2 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest('req.get.revokeV...', Array)
+#3 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(38): CComponent->__call('emitRest', Array)
+#4 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestGET->{closure}(Array, Array)
+#5 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(58): ERestBaseAction->finalRender(Object(Closure))
+#6 [internal function]: EActionRestGET->run('revokeVehicle', NULL, NULL)
+#7 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs(Object(EActionRestGET), Array)
+#8 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): CAction->runWithParamsInternal(Object(EActionRestGET), Object(ReflectionMethod), Array)
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestGET))
+#11 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#12 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter(Object(CFilterChain))
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(EActionRestGET), Array)
+#16 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('REST.GET')
+#17 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('driverAndVehicl...')
+#18 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#19 C:\xampp\htdocs\natcBack\index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/natcBack/index.php/api/driverAndVehicles/revokeVehicle?driverId=2
+HTTP_REFERER=http://localhost/natc/dispatching.html
+---
+2021/11/09 15:42:26 [error] [php] Undefined index: color (C:\xampp\htdocs\natcBack\protected\controllers\DriverAndVehiclesController.php:78)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest()
+#1 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(36): DriverAndVehiclesController->__call()
+#2 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestPOST->{closure}()
+#3 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(50): EActionRestPOST->finalRender()
+#4 unknown(0): EActionRestPOST->run()
+#5 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): EActionRestPOST->runWithParamsInternal()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): EActionRestPOST->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): DriverAndVehiclesController->runAction()
+#9 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter()
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): ERestFilter->filter()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): DriverAndVehiclesController->runActionWithFilters()
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): DriverAndVehiclesController->run()
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\natcBack\index.php(13): CWebApplication->run()
+REQUEST_URI=/natcBack/index.php/api/driverAndVehicles/addVehicle
+in C:\xampp\htdocs\natcBack\protected\controllers\DriverAndVehiclesController.php (78)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php (170)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php (109)
+2021/11/09 15:42:29 [error] [php] Undefined index: color (C:\xampp\htdocs\natcBack\protected\controllers\DriverAndVehiclesController.php:78)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest()
+#1 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(36): DriverAndVehiclesController->__call()
+#2 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestPOST->{closure}()
+#3 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(50): EActionRestPOST->finalRender()
+#4 unknown(0): EActionRestPOST->run()
+#5 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): EActionRestPOST->runWithParamsInternal()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): EActionRestPOST->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): DriverAndVehiclesController->runAction()
+#9 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter()
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): ERestFilter->filter()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): DriverAndVehiclesController->runActionWithFilters()
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): DriverAndVehiclesController->run()
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\natcBack\index.php(13): CWebApplication->run()
+REQUEST_URI=/natcBack/index.php/api/driverAndVehicles/addVehicle
+in C:\xampp\htdocs\natcBack\protected\controllers\DriverAndVehiclesController.php (78)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php (170)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php (109)
+2021/11/09 15:43:00 [error] [php] Undefined index: color (C:\xampp\htdocs\natcBack\protected\controllers\DriverAndVehiclesController.php:78)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest()
+#1 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(36): DriverAndVehiclesController->__call()
+#2 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestPOST->{closure}()
+#3 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(50): EActionRestPOST->finalRender()
+#4 unknown(0): EActionRestPOST->run()
+#5 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): EActionRestPOST->runWithParamsInternal()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): EActionRestPOST->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): DriverAndVehiclesController->runAction()
+#9 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter()
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): ERestFilter->filter()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): DriverAndVehiclesController->runActionWithFilters()
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): DriverAndVehiclesController->run()
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\natcBack\index.php(13): CWebApplication->run()
+REQUEST_URI=/natcBack/index.php/api/driverAndVehicles/addVehicle
+in C:\xampp\htdocs\natcBack\protected\controllers\DriverAndVehiclesController.php (78)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php (170)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php (109)
+2021/11/10 15:22:11 [error] [exception.CException] CException: Property "NatcVehicleDriver.unit" is not defined. in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('unit')
+#1 C:\xampp\htdocs\natcBack\protected\controllers\BookingController.php(43): CActiveRecord->__get('unit')
+#2 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php(170): BookingController->{closure}(NULL, NULL)
+#3 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php(109): Eventor->emit('req.get.availab...', Array)
+#4 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest('req.get.availab...', Array)
+#5 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(38): CComponent->__call('emitRest', Array)
+#6 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestGET->{closure}(Array, Array)
+#7 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(58): ERestBaseAction->finalRender(Object(Closure))
+#8 [internal function]: EActionRestGET->run('availableVehicl...', NULL, NULL)
+#9 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs(Object(EActionRestGET), Array)
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): CAction->runWithParamsInternal(Object(EActionRestGET), Object(ReflectionMethod), Array)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#12 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestGET))
+#13 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(EActionRestGET), Array)
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('REST.GET')
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('booking/REST.GE...')
+#20 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\natcBack\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/natcBack/index.php/api/booking/availableVehicles
+HTTP_REFERER=http://localhost/natc/dispatching.html
+---
+2021/11/10 16:04:21 [error] [exception.CHttpException.503: Forbidden or Login Failed!] CHttpException: Username or Password is invalid or you're not registered in C:\xampp\htdocs\natcBack\protected\components\UserIdentity.php:24
+Stack trace:
+#0 C:\xampp\htdocs\natcBack\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#1 C:\xampp\htdocs\yii\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#2 C:\xampp\htdocs\yii\framework\validators\CValidator.php(201): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#3 C:\xampp\htdocs\yii\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), Array)
+#4 C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php(186): CModel->validate()
+#5 C:\xampp\htdocs\natcBack\protected\controllers\SiteController.php(261): SiteController->login(Array)
+#6 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php(170): SiteController->{closure}(Array, NULL, NULL)
+#7 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php(109): Eventor->emit('req.post.login....', Array)
+#8 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest('req.post.login....', Array)
+#9 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(36): CComponent->__call('emitRest', Array)
+#10 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestPOST->{closure}(Array, Array)
+#11 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestPOST.php(50): ERestBaseAction->finalRender(Object(Closure))
+#12 [internal function]: EActionRestPOST->run('login', NULL, NULL)
+#13 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs(Object(EActionRestPOST), Array)
+#14 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): CAction->runWithParamsInternal(Object(EActionRestPOST), Object(ReflectionMethod), Array)
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#16 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestPOST))
+#17 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter(Object(CFilterChain))
+#19 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#21 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(EActionRestPOST), Array)
+#22 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('REST.POST')
+#23 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/REST.POST')
+#24 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#25 C:\xampp\htdocs\natcBack\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/natcBack/index.php/api/site/login
+HTTP_REFERER=http://localhost/natc/dispatching.html
+---
+2021/11/12 04:10:24 [error] [php] Trying to get property 'booking_id' of non-object (C:\xampp\htdocs\natcBack\protected\controllers\BookingController.php:72)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest()
+#1 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(38): BookingController->__call()
+#2 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestGET->{closure}()
+#3 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(58): EActionRestGET->finalRender()
+#4 unknown(0): EActionRestGET->run()
+#5 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): EActionRestGET->runWithParamsInternal()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): EActionRestGET->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): BookingController->runAction()
+#9 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter()
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): ERestFilter->filter()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): BookingController->runActionWithFilters()
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): BookingController->run()
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\natcBack\index.php(13): CWebApplication->run()
+REQUEST_URI=/natcBack/index.php/api/booking/bookingListToday
+in C:\xampp\htdocs\natcBack\protected\controllers\BookingController.php (72)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php (170)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php (109)
+2021/11/12 04:10:31 [error] [php] Trying to get property 'booking_id' of non-object (C:\xampp\htdocs\natcBack\protected\controllers\BookingController.php:72)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest()
+#1 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(38): BookingController->__call()
+#2 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestGET->{closure}()
+#3 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(58): EActionRestGET->finalRender()
+#4 unknown(0): EActionRestGET->run()
+#5 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): EActionRestGET->runWithParamsInternal()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): EActionRestGET->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): BookingController->runAction()
+#9 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter()
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): ERestFilter->filter()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): BookingController->runActionWithFilters()
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): BookingController->run()
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\natcBack\index.php(13): CWebApplication->run()
+REQUEST_URI=/natcBack/index.php/api/booking/bookingListToday
+in C:\xampp\htdocs\natcBack\protected\controllers\BookingController.php (72)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php (170)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php (109)
+2021/11/12 04:10:34 [error] [php] Trying to get property 'booking_id' of non-object (C:\xampp\htdocs\natcBack\protected\controllers\BookingController.php:72)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest()
+#1 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(38): BookingController->__call()
+#2 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestGET->{closure}()
+#3 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(58): EActionRestGET->finalRender()
+#4 unknown(0): EActionRestGET->run()
+#5 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): EActionRestGET->runWithParamsInternal()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): EActionRestGET->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): BookingController->runAction()
+#9 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter()
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): ERestFilter->filter()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): BookingController->runActionWithFilters()
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): BookingController->run()
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\natcBack\index.php(13): CWebApplication->run()
+REQUEST_URI=/natcBack/index.php/api/booking/bookingListToday
+in C:\xampp\htdocs\natcBack\protected\controllers\BookingController.php (72)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php (170)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php (109)
+2021/11/12 04:10:38 [error] [php] Trying to get property 'booking_id' of non-object (C:\xampp\htdocs\natcBack\protected\controllers\BookingController.php:72)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest()
+#1 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(38): BookingController->__call()
+#2 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestGET->{closure}()
+#3 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(58): EActionRestGET->finalRender()
+#4 unknown(0): EActionRestGET->run()
+#5 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): EActionRestGET->runWithParamsInternal()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): EActionRestGET->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): BookingController->runAction()
+#9 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter()
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): ERestFilter->filter()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): BookingController->runActionWithFilters()
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): BookingController->run()
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\natcBack\index.php(13): CWebApplication->run()
+REQUEST_URI=/natcBack/index.php/api/booking/bookingListToday
+in C:\xampp\htdocs\natcBack\protected\controllers\BookingController.php (72)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php (170)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php (109)
+2021/11/12 04:11:02 [error] [php] Trying to get property 'attributes' of non-object (C:\xampp\htdocs\natcBack\protected\controllers\BookingController.php:74)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest()
+#1 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(38): BookingController->__call()
+#2 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestGET->{closure}()
+#3 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(58): EActionRestGET->finalRender()
+#4 unknown(0): EActionRestGET->run()
+#5 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): EActionRestGET->runWithParamsInternal()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): EActionRestGET->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): BookingController->runAction()
+#9 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter()
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): ERestFilter->filter()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): BookingController->runActionWithFilters()
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): BookingController->run()
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\natcBack\index.php(13): CWebApplication->run()
+REQUEST_URI=/natcBack/index.php/api/booking/bookingListToday
+in C:\xampp\htdocs\natcBack\protected\controllers\BookingController.php (74)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php (170)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php (109)
+2021/11/12 11:36:11 [error] [php] Undefined index: bookingId (C:\xampp\htdocs\natcBack\protected\controllers\BookingController.php:55)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest()
+#1 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(38): BookingController->__call()
+#2 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestGET->{closure}()
+#3 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(58): EActionRestGET->finalRender()
+#4 unknown(0): EActionRestGET->run()
+#5 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): EActionRestGET->runWithParamsInternal()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): EActionRestGET->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): BookingController->runAction()
+#9 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter()
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): ERestFilter->filter()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): BookingController->runActionWithFilters()
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): BookingController->run()
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\natcBack\index.php(13): CWebApplication->run()
+REQUEST_URI=/natcBack/index.php/api/booking/markBookingAsDone
+in C:\xampp\htdocs\natcBack\protected\controllers\BookingController.php (55)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php (170)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php (109)
+2021/11/12 11:36:14 [error] [php] Undefined index: bookingId (C:\xampp\htdocs\natcBack\protected\controllers\BookingController.php:55)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\base\CComponent.php(261): ERestBehavior->emitRest()
+#1 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(38): BookingController->__call()
+#2 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestGET->{closure}()
+#3 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(58): EActionRestGET->finalRender()
+#4 unknown(0): EActionRestGET->run()
+#5 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): EActionRestGET->runWithParamsInternal()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): EActionRestGET->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): BookingController->runAction()
+#9 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter()
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): ERestFilter->filter()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): BookingController->runActionWithFilters()
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): BookingController->run()
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\natcBack\index.php(13): CWebApplication->run()
+REQUEST_URI=/natcBack/index.php/api/booking/markBookingAsDone
+in C:\xampp\htdocs\natcBack\protected\controllers\BookingController.php (55)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php (170)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php (109)
+2021/11/13 06:26:36 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "adminPanel/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('adminPanel/REST...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\natcBack\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/natcBack/index.php/api/adminPanel/listUsers
+HTTP_REFERER=http://localhost/natc/dispatching.html
+---
+2021/11/13 06:26:42 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "adminPanel/REST.GET". in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('adminPanel/REST...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\natcBack\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/natcBack/index.php/api/adminPanel/listUsers
+HTTP_REFERER=http://localhost/natc/dispatching.html
+---
+2021/11/13 06:27:04 [error] [exception.CHttpException.404] CHttpException: Resource Not Found in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php:56
+Stack trace:
+#0 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\ERestBaseAction.php(60): EActionRestGET->{closure}(Array, Array)
+#1 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\actions\EActionRestGET.php(58): ERestBaseAction->finalRender(Object(Closure))
+#2 [internal function]: EActionRestGET->run('listUsers', NULL, NULL)
+#3 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(115): ReflectionMethod->invokeArgs(Object(EActionRestGET), Array)
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(74): CAction->runWithParamsInternal(Object(EActionRestGET), Object(ReflectionMethod), Array)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(308): CAction->runWithParams(Array)
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(EActionRestGET))
+#7 C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\filters\ERestFilter.php(88): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): ERestFilter->preFilter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(131): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(EActionRestGET), Array)
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('REST.GET')
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('adminPanel/REST...')
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\natcBack\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/natcBack/index.php/api/adminPanel/listUsers
+HTTP_REFERER=http://localhost/natc/dispatching.html
+---
+2021/11/13 07:20:23 [warning] [application] Failed to set unsafe attribute "terminal" of "NatcUsers".
+in C:\xampp\htdocs\natcBack\protected\controllers\AdminPanelController.php (17)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php (170)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php (109)
+2021/11/13 07:20:56 [warning] [application] Failed to set unsafe attribute "terminal" of "NatcUsers".
+in C:\xampp\htdocs\natcBack\protected\controllers\AdminPanelController.php (17)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php (170)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php (109)
+2021/11/13 07:21:16 [warning] [application] Failed to set unsafe attribute "terminal" of "NatcUsers".
+in C:\xampp\htdocs\natcBack\protected\controllers\AdminPanelController.php (17)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\events\Eventor\Eventor.php (170)
+in C:\xampp\htdocs\natcBack\protected\extensions\starship\RestfullYii\behaviors\ERestBehavior.php (109)

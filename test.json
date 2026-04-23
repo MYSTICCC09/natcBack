@@ -1,0 +1,67 @@
+{
+  "success": "true",
+  "message": "Record(s) found",
+  "data": [
+    {
+      "item_id": "1",
+      "item_name": "Laptop for trade! Asus",
+      "item_desc": "askfhaj asdk fsaf hkjfa alasfkjsa ksa haskfj s kja kjasfas asf asf asf asf sadf ",
+      "item_trade_value": "10k - 20k",
+      "category_id": "1",
+      "item_condition": "New",
+      "status": "1",
+      "featured": "1",
+      "user_id": "1",
+      "date_posted": "2015-09-05",
+      "date_updated": "2015-09-05",
+      "user": {
+        "user_id": "1",
+        "user_name": "admin",
+        "user_password": "21232f297a57a5a743894a0e4a801fc3",
+        "user_fullname": "Administrator",
+        "status": "1",
+        "user_type": "Administrator"
+      }
+    },
+    {
+      "item_id": "2",
+      "item_name": "Phone for your whatever!",
+      "item_desc": "asdf af asf asfasdf sf asf s asf asf dfsdafasdfas dsaf dasf
+      sdfds
+      saf
+      dsf
+      sadf
+      ","
+      item_trade_value
+      ":"
+      10
+      k
+      -
+      20
+      k
+      ","
+      category_id
+      ":"
+      1
+      ","
+      item_condition
+      ":"
+      Used
+      ","
+      status
+      ": "1",
+      "featured": "1",
+      "user_id": "1",
+      "date_posted": "2015-09-05",
+      "date_updated": "2015-09-05",
+      "user": {
+        "user_id": "1",
+        "user_name": "admin",
+        "user_password": "21232f297a57a5a743894a0e4a801fc3",
+        "user_fullname": "Administrator",
+        "status": "1",
+        "user_type": "Administrator"
+      }
+    }
+  ]
+}

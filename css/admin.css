@@ -1,0 +1,14 @@
+
+#admin-page{
+    border: 1px solid #2A6CB6;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px #2A6CB6;
+    padding: 10px;
+        
+}
+#admin-panel{
+    border: 1px solid #2A6CB6;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px #2A6CB6;
+    padding: 10px;
+}

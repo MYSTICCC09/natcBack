@@ -1,0 +1,12 @@
+<ul class="inline-div" style="list-style: none;padding: 5px; margin: 0px">
+    <li ng-repeat="img in images" class="img-item" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+        <div class="img-caption abs"><strong>{{img.caption}}</strong></div>
+        <img ng-click="selectPhoto(img.order)" class="fadein ng-enter" ng-src="{{rootUrl}}/images/slider/{{img.img}}" width="150"/>
+    </li>
+</ul>
+<ul class="inline-div" style="list-style: none;padding: 5px; margin-bottom: 0px">
+    <li ng-repeat="img in images| filter: imgCounter" class="slide">
+        <img class="fadein ng-enter" ng-src="{{rootUrl}}/images/slider/{{img.img}}" width="660"/>
+    </li>
+</ul>
+
