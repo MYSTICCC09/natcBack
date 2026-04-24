@@ -1,5 +1,5 @@
 {
-    "name": "Ohmel",
+    "name": "andrei/natc-backend",
     "require": {
         "codeception/codeception": "dev-master",
         "starship/restfullyii": "dev-master"
