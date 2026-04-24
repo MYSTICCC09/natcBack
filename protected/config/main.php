@@ -82,10 +82,10 @@ return array(
         ),
         // uncomment the following to use a MySQL database
         'db' => array(
-            'connectionString' => 'mysql:host=localhost;dbname=triconns_natc_db',
+            'connectionString' => 'mysql:host=' . getenv('MYSQLHOST') . ';port=' . getenv('MYSQLPORT') . ';dbname=' . getenv('MYSQLDATABASE'),
             'emulatePrepare' => true,
-            'username' => 'triconns_root',
-            'password' => '5w0rdf15H!',
+            'username' => getenv('MYSQLUSER'),
+            'password' => getenv('MYSQLPASSWORD'),
             'charset' => 'utf8',
         ),
         'authManager' => array(
@@ -116,6 +116,6 @@ return array(
     // using Yii::app()->params['paramName']
     'params' => array(
         // this is used in contact page
-        'adminEmail' => 'webmaster@example.com',
+        'adminEmail' => 'andreinituyacapili@gmail.com',
     ),
 );
