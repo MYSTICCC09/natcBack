@@ -1,5 +1,5 @@
 <?php
-// Force Railway to show every possible error in the logs
+// Report every single detail to Railway logs
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
@@ -13,13 +13,12 @@ if(isset($_POST)){
     $conn = new mysqli($servername, $username, $password, $dbname, $port);
 
     if ($conn->connect_error) {
-        error_log("DB FAIL: " . $conn->connect_error);
+        error_log("DATABASE CONNECTION ERROR: " . $conn->connect_error);
         die("Connection failed");
     } else {
         $time = date('H:i:s');
         $newDate = date("Y-m-d", strtotime($_POST['date']));
         
-        // Escape data for database
         $name = $conn->real_escape_string($_POST['name']);
         $email = $conn->real_escape_string($_POST['email']);
         $phone = $conn->real_escape_string($_POST['phone']);
@@ -35,11 +34,10 @@ if(isset($_POST)){
             $bookingNo = strtoupper(substr(md5($last_id . "natc"), 0, 10));
             $conn->query("UPDATE natc_booking SET booking_no='{$bookingNo}' WHERE booking_id=$last_id");
 
-            // Fetch Rate
             $res = $conn->query("SELECT * FROM natc_destination_rates WHERE dr_id='{$dest_id}' LIMIT 1")->fetch_assoc();
             $rate = ($vehicle == 'Innova') ? $res['dr_rate_innova'] : $res['dr_rate_van'];
 
-            // MAILJET CORE LOGIC
+            // API KEYS - TRIMMING TO REMOVE HIDDEN SPACES
             $apiKey = trim(getenv('MAILJET_API_KEY'));
             $apiSecret = trim(getenv('MAILJET_SECRET_KEY'));
 
@@ -48,27 +46,33 @@ if(isset($_POST)){
                     'From' => ['Email' => 'andreicapili4@gmail.com', 'Name' => 'NATC'],
                     'To' => [['Email' => $email, 'Name' => $name]],
                     'Subject' => "Booking #$bookingNo Confirmed",
-                    'HTMLPart' => "<h3>Booking Confirmed!</h3><p>Tracking: $bookingNo</p><p>Rate: $rate php</p>"
+                    'HTMLPart' => "<h3>Success!</h3><p>Your booking #$bookingNo is confirmed. Rate: $rate php.</p>"
                 ]]
             ]);
 
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, 'https://api.mailjet.com/v3.1/send');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_POST, true);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Bypasses SSL certificate issues on cloud hosts
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
             curl_setopt($ch, CURLOPT_HTTPHEADER, [
                 'Content-Type: application/json',
                 'Authorization: Basic ' . base64_encode($apiKey . ":" . $apiSecret)
             ]);
 
             $response = curl_exec($ch);
+            $err = curl_error($ch);
             $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
             
-            // This is the most important part: check your Railway logs for this!
-            error_log("MAILJET ATTEMPT: Code $httpCode");
-            error_log("MAILJET BODY: " . $response);
+            // LOG THIS DATA
+            error_log("MAILJET HTTP CODE: " . $httpCode);
+            if ($err) {
+                error_log("CURL ERROR: " . $err);
+            } else {
+                error_log("MAILJET RESPONSE: " . $response);
+            }
             
             curl_close($ch);
 
