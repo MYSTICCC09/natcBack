@@ -7,15 +7,16 @@ $port       = getenv('MYSQLPORT');
 
 $conn = new mysqli($servername, $username, $password, $dbname, $port);
 
-$booking_id = $_GET['id'];
-$status_code = $_GET['status']; // 2 for Accept, 3 for Reject
+$id = $_GET['id'];
+$status = $_GET['status']; // 2=Confirmed, 3=Rejected
 
-$sql = "UPDATE natc_booking SET status = '$status_code' WHERE booking_id = '$booking_id'";
-
-if ($conn->query($sql)) {
-    $msg = ($status_code == 2) ? "Booking Accepted! Drive safe." : "Booking Rejected.";
-    echo "<h1>$msg</h1><p>You can close this window now.</p>";
-} else {
-    echo "<h1>Error updating booking.</h1>";
+if($id && $status){
+    $sql = "UPDATE natc_booking SET status = '$status' WHERE booking_id = '$id'";
+    if($conn->query($sql)){
+        echo "<div style='text-align:center; padding-top:100px; font-family:sans-serif;'>";
+        echo "<h1>Status Updated Successfully!</h1>";
+        echo "<p>The customer's tracking page now reflects this change.</p>";
+        echo "</div>";
+    }
 }
 ?>

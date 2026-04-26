@@ -1,5 +1,5 @@
 <?php
-// Report errors but don't let them break the redirect
+// Silences warnings but logs errors
 error_reporting(E_ALL);
 ini_set('display_errors', 0); 
 
@@ -35,49 +35,42 @@ if(isset($_POST)){
             $res = $conn->query("SELECT * FROM natc_destination_rates WHERE dr_id='{$dest_id}' LIMIT 1")->fetch_assoc();
             $rate = ($vehicle == 'Innova') ? $res['dr_rate_innova'] : $res['dr_rate_van'];
 
-            // --- TELEGRAM NOTIFICATION WITH ACTION BUTTONS ---
-$token = trim(getenv('TELEGRAM_BOT_TOKEN'));
-$chat  = trim(getenv('TELEGRAM_CHAT_ID'));
+            // --- TELEGRAM NOTIFICATION WITH BUTTONS ---
+            $token = trim(getenv('TELEGRAM_BOT_TOKEN'));
+            $chat  = trim(getenv('TELEGRAM_CHAT_ID'));
+            
+            if(!empty($token) && !empty($chat)) {
+                $text = "🚖 *NEW NATC BOOKING*\n\n" .
+                        "*ID:* `$bookingNo` \n" .
+                        "*Name:* $name\n" .
+                        "*From:* $pickup\n" .
+                        "*Rate:* ₱$rate";
 
-if($token && $chat) {
-    $text = "🚕 *NEW BOOKING RECEIVED*\n\n" .
-            "🆔 *No:* `$bookingNo` \n" .
-            "👤 *Name:* $name\n" .
-            "📍 *From:* $pickup\n" .
-            "💰 *Rate:* ₱$rate";
+                $keyboard = [
+                    'inline_keyboard' => [[
+                        ['text' => '✅ Accept', 'url' => "https://natc-production.up.railway.app/updateStatus.php?id=$last_id&status=2"],
+                        ['text' => '❌ Reject', 'url' => "https://natc-production.up.railway.app/updateStatus.php?id=$last_id&status=3"]
+                    ]]
+                ];
 
-    // Define the buttons
-    $keyboard = [
-        'inline_keyboard' => [[
-            ['text' => '✅ Accept', 'url' => "https://natc-production.up.railway.app/updateStatus.php?id=$last_id&status=2"],
-            ['text' => '❌ Reject', 'url' => "https://natc-production.up.railway.app/updateStatus.php?id=$last_id&status=3"]
-        ]]
-    ];
+                $url = "https://api.telegram.org/bot$token/sendMessage";
+                $postFields = [
+                    'chat_id' => $chat,
+                    'text' => $text,
+                    'parse_mode' => 'markdown',
+                    'reply_markup' => json_encode($keyboard)
+                ];
 
-    $url = "https://api.telegram.org/bot$token/sendMessage";
-    $postFields = [
-        'chat_id' => $chat,
-        'text' => $text,
-        'parse_mode' => 'markdown',
-        'reply_markup' => json_encode($keyboard)
-    ];
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    curl_exec($ch);
-    curl_close($ch);
-}
-                
-                // The '@' and timeout ensure the script doesn't hang or show warnings
-                $ctx = stream_context_create(['http' => ['timeout' => 3]]);
-                @file_get_contents($url, false, $ctx);
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                curl_exec($ch);
+                curl_close($ch);
             }
 
-            // Always redirect to success page
             header('Location: https://natc-production.up.railway.app/bookingSuccess.php?bid='.$last_id);
             exit;
         }
