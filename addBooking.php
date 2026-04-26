@@ -1,8 +1,4 @@
 <?php
-// Report every single detail to Railway logs
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
 if(isset($_POST)){
     $servername = getenv('MYSQLHOST');
     $username   = getenv('MYSQLUSER');
@@ -13,7 +9,6 @@ if(isset($_POST)){
     $conn = new mysqli($servername, $username, $password, $dbname, $port);
 
     if ($conn->connect_error) {
-        error_log("DATABASE CONNECTION ERROR: " . $conn->connect_error);
         die("Connection failed");
     } else {
         $time = date('H:i:s');
@@ -37,44 +32,28 @@ if(isset($_POST)){
             $res = $conn->query("SELECT * FROM natc_destination_rates WHERE dr_id='{$dest_id}' LIMIT 1")->fetch_assoc();
             $rate = ($vehicle == 'Innova') ? $res['dr_rate_innova'] : $res['dr_rate_van'];
 
-            // API KEYS - TRIMMING TO REMOVE HIDDEN SPACES
-            $apiKey = trim(getenv('MAILJET_API_KEY'));
-            $apiSecret = trim(getenv('MAILJET_SECRET_KEY'));
+            // --- FORMSUBMIT LOGIC ---
+            $myEmail = "andreicapili4@gmail.com"; 
+            
+            $emailData = [
+                '_subject' => "New NATC Booking: $bookingNo",
+                'Customer_Name' => $name,
+                'Customer_Email' => $email,
+                'Phone' => $phone,
+                'Pickup' => $pickup,
+                'Vehicle' => $vehicle,
+                'Amount' => $rate . " php",
+                '_captcha' => 'false', // Disables annoying robot checks
+                '_template' => 'table' // Makes the email look clean and professional
+            ];
 
-            $payload = json_encode([
-                'Messages' => [[
-                    'From' => ['Email' => 'andreicapili4@gmail.com', 'Name' => 'NATC'],
-                    'To' => [['Email' => $email, 'Name' => $name]],
-                    'Subject' => "Booking #$bookingNo Confirmed",
-                    'HTMLPart' => "<h3>Success!</h3><p>Your booking #$bookingNo is confirmed. Rate: $rate php.</p>"
-                ]]
-            ]);
-
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, 'https://api.mailjet.com/v3.1/send');
+            $ch = curl_init("https://formsubmit.co/ajax/{$myEmail}");
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, [
-                'Content-Type: application/json',
-                'Authorization: Basic ' . base64_encode($apiKey . ":" . $apiSecret)
-            ]);
-
-            $response = curl_exec($ch);
-            $err = curl_error($ch);
-            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            
-            // LOG THIS DATA
-            error_log("MAILJET HTTP CODE: " . $httpCode);
-            if ($err) {
-                error_log("CURL ERROR: " . $err);
-            } else {
-                error_log("MAILJET RESPONSE: " . $response);
-            }
-            
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($emailData));
+            curl_exec($ch);
             curl_close($ch);
+            // --- END FORMSUBMIT ---
 
             header('Location: https://natc-production.up.railway.app/bookingSuccess.php?bid='.$last_id);
             exit;
