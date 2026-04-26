@@ -221,7 +221,7 @@ abstract class PHP_CodeCoverage_Report_HTML_Renderer
     protected function getInactiveBreadcrumb(PHP_CodeCoverage_Report_Node $node, $pathToRoot)
     {
         return sprintf(
-            '        <li><a href="%sindex.html">%s</a></li>' . "\n",
+            '        <li><a href="%sindex.php">%s</a></li>' . "\n",
             $pathToRoot,
             $node->getName()
         );

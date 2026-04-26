@@ -4,7 +4,7 @@ docs:
 	cd docs && make html
 
 view-docs:
-	open docs/_build/html/index.html
+	open docs/_build/html/index.php
 
 start-server: stop-server
 	node tests/Client/server.js &> /dev/null &
@@ -25,7 +25,7 @@ coverage: start-server
 	$(MAKE) stop-server
 
 view-coverage:
-	open build/artifacts/coverage/index.html
+	open build/artifacts/coverage/index.php
 
 clean:
 	rm -rf build/artifacts/*

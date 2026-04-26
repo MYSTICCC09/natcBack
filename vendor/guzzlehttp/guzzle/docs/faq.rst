@@ -55,7 +55,7 @@ testing an handler implementation, Guzzle provides a mock node.js web server.
 
 **Ecosystem**
 
-Guzzle has a large `ecosystem of plugins <http://guzzle.readthedocs.org/en/latest/index.html#http-components>`_,
+Guzzle has a large `ecosystem of plugins <http://guzzle.readthedocs.org/en/latest/index.php#http-components>`_,
 including `service descriptions <https://github.com/guzzle/guzzle-services>`_
 which allows you to abstract web services using service descriptions. These
 service descriptions define how to serialize an HTTP request and how to parse

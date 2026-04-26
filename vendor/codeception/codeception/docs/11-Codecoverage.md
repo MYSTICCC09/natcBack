@@ -72,7 +72,7 @@ To generate a clover xml report or a tasty html report append also `--coverage-x
 codecept run --coverage --coverage-xml --coverage-html
 ```
 
-XML and HTML reports are stored to the `_output` directory. The best way to review report is to open `index.html` from `tests/_output/coverage` in your browser.
+XML and HTML reports are stored to the `_output` directory. The best way to review report is to open `index.php` from `tests/_output/coverage` in your browser.
 XML clover reports are used by IDEs (like PHPStorm) or Continuous Integration servers (like Jenkins).
 
 ## Remote CodeCoverage

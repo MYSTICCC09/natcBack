@@ -15,7 +15,7 @@ coverage: start-server
 	$(MAKE) stop-server
 
 view-coverage:
-	open artifacts/coverage/index.html
+	open artifacts/coverage/index.php
 
 clean:
 	rm -rf artifacts/*
@@ -24,7 +24,7 @@ docs:
 	cd docs && make html && cd ..
 
 view-docs:
-	open docs/_build/html/index.html
+	open docs/_build/html/index.php
 
 tag:
 	$(if $(TAG),,$(error TAG is not defined. Pass via "make tag TAG=4.2.1"))

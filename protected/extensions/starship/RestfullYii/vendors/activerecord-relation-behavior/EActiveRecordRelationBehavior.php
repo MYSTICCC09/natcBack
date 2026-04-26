@@ -3,7 +3,7 @@
  * EActiveRecordRelationBehavior class file.
  *
  * @author Carsten Brandt <mail@cebe.cc>
- * @link http://yiiext.github.com/extensions/activerecord-relation-behavior/index.html
+ * @link http://yiiext.github.com/extensions/activerecord-relation-behavior/index.php
  * @copyright Copyright &copy; 2013 Carsten Brandt
  * @license https://github.com/yiiext/activerecord-relation-behavior/blob/master/LICENSE#L1
  */

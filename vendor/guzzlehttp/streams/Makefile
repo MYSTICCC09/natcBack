@@ -13,7 +13,7 @@ coverage:
 	vendor/bin/phpunit --coverage-html=artifacts/coverage
 
 view-coverage:
-	open artifacts/coverage/index.html
+	open artifacts/coverage/index.php
 
 clean:
 	rm -rf artifacts/*
