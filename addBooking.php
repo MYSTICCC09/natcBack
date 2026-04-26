@@ -1,6 +1,5 @@
 <?php
 if(isset($_POST)){
-    // Use Railway environment variables
     $servername = getenv('MYSQLHOST');
     $username   = getenv('MYSQLUSER');
     $password   = getenv('MYSQLPASSWORD');
@@ -8,24 +7,6 @@ if(isset($_POST)){
     $port       = getenv('MYSQLPORT');
 
     $conn = new mysqli($servername, $username, $password, $dbname, $port);
-
-    // Send email via FormSubmit API
-$emailData = json_encode([
-    'name' => $_POST['name'],
-    'email' => $_POST['email'],
-    'message' => "Your booking {$bookingNo} has been confirmed! Vehicle: {$_POST['vehicle']}, Date: {$newDate}, Rate: {$rate} php"
-]);
-
-$ch = curl_init('https://formsubmit.co/ajax/' . $_POST['email']);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $emailData);
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    'Content-Type: application/json',
-    'Accept: application/json'
-]);
-curl_exec($ch);
-curl_close($ch);
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -57,36 +38,19 @@ curl_close($ch);
                 if($_POST['vehicle'] == 'Innova') $rate = $res['dr_rate_innova'];
                 if($_POST['vehicle'] == 'Van') $rate = $res['dr_rate_van'];
 
-                $to = $_POST['email'];
-                $subject = "NATC Booking";
-                $message = "
-                    <html><head><title>NATC BOOKING</title></head>
-                    <body>
-                    <p>You have booked a/an {$_POST['vehicle']}</p>
-                    <table style='width:70%'>
-                    <tr>
-                        <th>Tracking No.</th><th>Name</th><th>Pickup</th>
-                        <th>Destination</th><th>Locations</th><th>Schedule</th><th>Rate</th>
-                    </tr>
-                    <tr>
-                        <td>{$bookingNo}</td>
-                        <td>{$_POST['name']}</td>
-                        <td>{$_POST['pickup']}</td>
-                        <td>{$res['dr_destination']}</td>
-                        <td>{$res['dr_locations']}</td>
-                        <td>{$newDate}</td>
-                        <td>{$rate} php</td>
-                    </tr>
-                    </table>
-                    </body></html>
-                ";
+                // Send email via FormSubmit
+                $emailData = http_build_query([
+                    'name'    => $_POST['name'],
+                    'email'   => $_POST['email'],
+                    'message' => "Booking No: {$bookingNo} | Vehicle: {$_POST['vehicle']} | Date: {$newDate} | Rate: {$rate} php | Pickup: {$_POST['pickup']}"
+                ]);
+                $ch = curl_init('https://formsubmit.co/' . $_POST['email']);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $emailData);
+                curl_exec($ch);
+                curl_close($ch);
 
-                $headers  = "MIME-Version: 1.0\r\n";
-                $headers .= "Content-type:text/html;charset=UTF-8\r\n";
-                $headers .= "From: <booking@natc.com>\r\n";
-                mail($to, $subject, $message, $headers);
-
-                // ✅ Fixed: redirect to your live Railway frontend URL
                 header('Location: https://natc-production.up.railway.app/bookingSuccess.php?bid='.$last_id);
                 exit;
             }
