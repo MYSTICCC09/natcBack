@@ -29,11 +29,10 @@ if(isset($_POST)){
             $bookingNo = strtoupper(substr(md5($last_id . "natc"), 0, 10));
             $conn->query("UPDATE natc_booking SET booking_no='{$bookingNo}' WHERE booking_id=$last_id");
 
-            // Calculate rate for the confirmation
             $res = $conn->query("SELECT * FROM natc_destination_rates WHERE dr_id='{$dest_id}' LIMIT 1")->fetch_assoc();
             $rate = ($vehicle == 'Innova') ? $res['dr_rate_innova'] : $res['dr_rate_van'];
 
-            // We redirect to the success page but pass the email info in the URL
+            // Pass the data to the success page via URL
             $subject = urlencode("NATC Booking - $bookingNo");
             $body = urlencode("Booking No: $bookingNo\nVehicle: $vehicle\nRate: $rate php");
             
