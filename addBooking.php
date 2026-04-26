@@ -21,7 +21,7 @@ if(isset($_POST)){
         $originalDate = $_POST['date'];
         $newDate = date("Y-m-d", strtotime($originalDate));
         
-        // Sanitize
+        // Sanitize inputs
         $name = $conn->real_escape_string($_POST['name']);
         $email = $conn->real_escape_string($_POST['email']);
         $phone = $conn->real_escape_string($_POST['phone']);
@@ -37,20 +37,32 @@ if(isset($_POST)){
             $bookingNo = strtoupper(substr(md5($last_id . $time), 0, 10));
             $conn->query("UPDATE natc_booking SET booking_no='{$bookingNo}' WHERE booking_id=$last_id");
 
-            // Fetch Rate
+            // Fetch destination rate
             $res = $conn->query("SELECT * FROM natc_destination_rates WHERE dr_id='{$destination}' LIMIT 1")->fetch_assoc();
             $rate = ($vehicle == 'Innova') ? $res['dr_rate_innova'] : $res['dr_rate_van'];
 
-            // MAILJET SENDING
+            // Mailjet API logic
             $apiKey = getenv('MAILJET_API_KEY');
             $apiSecret = getenv('MAILJET_SECRET_KEY');
 
             $data = json_encode([
                 'Messages' => [[
-                    'From' => ['Email' => 'andreicapili4@gmail.com', 'Name' => 'NATC'],
-                    'To' => [['Email' => $email, 'Name' => $name]],
-                    'Subject' => "Booking #$bookingNo Confirmed",
-                    'HTMLPart' => "<h3>Booking Confirmed!</h3><p>Tracking No: $bookingNo</p><p>Amount: $rate php</p>"
+                    'From' => [
+                        'Email' => 'andreicapili4@gmail.com', 
+                        'Name' => 'NATC Transport'
+                    ],
+                    'To' => [
+                        ['Email' => $email, 'Name' => $name],
+                        ['Email' => 'andreicapili4@gmail.com', 'Name' => 'Admin Copy']
+                    ],
+                    'Subject' => "New Booking #$bookingNo",
+                    'HTMLPart' => "
+                        <h3>Booking Success!</h3>
+                        <p><strong>Tracking No:</strong> $bookingNo</p>
+                        <p><strong>Pickup:</strong> $pickup</p>
+                        <p><strong>Date:</strong> $newDate</p>
+                        <p><strong>Rate:</strong> $rate php</p>
+                        <p>Thank you for choosing NATC!</p>"
                 ]]
             ]);
 
@@ -58,15 +70,24 @@ if(isset($_POST)){
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_POST, true);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Required for some cloud environments
             curl_setopt($ch, CURLOPT_HTTPHEADER, [
                 'Content-Type: application/json',
                 'Authorization: Basic ' . base64_encode($apiKey . ":" . $apiSecret)
             ]);
 
             $response = curl_exec($ch);
-            error_log("MAILJET RESPONSE: " . $response);
+            $err = curl_error($ch);
+            
+            if ($err) {
+                error_log("MAILJET CURL ERROR: " . $err);
+            } else {
+                error_log("MAILJET API RESPONSE: " . $response);
+            }
+            
             curl_close($ch);
 
+            // Final Redirect
             header('Location: https://natc-production.up.railway.app/bookingSuccess.php?bid='.$last_id);
             exit;
         }
