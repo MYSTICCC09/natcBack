@@ -38,13 +38,25 @@ if(isset($_POST)){
                 if($_POST['vehicle'] == 'Innova') $rate = $res['dr_rate_innova'];
                 if($_POST['vehicle'] == 'Van') $rate = $res['dr_rate_van'];
 
-                // Send email via FormSubmit
+                // Send notification to admin
+                $confirmUrl = "https://natcback-production.up.railway.app/confirmBooking.php?bid={$last_id}";
                 $emailData = http_build_query([
-                    'name'    => $_POST['name'],
-                    'email'   => $_POST['email'],
-                    'message' => "Booking No: {$bookingNo} | Vehicle: {$_POST['vehicle']} | Date: {$newDate} | Rate: {$rate} php | Pickup: {$_POST['pickup']}"
+                    'name'     => 'NATC Admin',
+                    'email'    => 'andreicapili4@gmail.com',
+                    '_subject' => 'New Booking - ' . $bookingNo,
+                    'message'  => "New booking received!
+                Booking No: {$bookingNo}
+                Name: {$_POST['name']}
+                Phone: {$_POST['phone']}
+                Email: {$_POST['email']}
+                Vehicle: {$_POST['vehicle']}
+                Pickup: {$_POST['pickup']}
+                Date: {$newDate}
+                Rate: {$rate} php
+
+                CLICK TO CONFIRM: {$confirmUrl}"
                 ]);
-                $ch = curl_init('https://formsubmit.co/' . $_POST['email']);
+                $ch = curl_init('https://formsubmit.co/andreicapili4@gmail.com');
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                 curl_setopt($ch, CURLOPT_POST, true);
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $emailData);
