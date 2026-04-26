@@ -1,6 +1,10 @@
 <?php
+// Enable error reporting for debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if(isset($_POST)){
-    // Use Railway environment variables
     $servername = getenv('MYSQLHOST');
     $username   = getenv('MYSQLUSER');
     $password   = getenv('MYSQLPASSWORD');
@@ -16,7 +20,6 @@ if(isset($_POST)){
         $originalDate = $_POST['date'];
         $newDate = date("Y-m-d", strtotime($originalDate));
         
-        // Sanitize input
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
 
         $sql = "INSERT INTO natc_booking (booking_no, booking_date, booking_time, driver_id, vehicle_id, status, booking_fare, name, phone, email, pickup, vehicle_type, passengers, luggage, notes, dr_id)
@@ -30,8 +33,8 @@ if(isset($_POST)){
             $sql = "UPDATE natc_booking SET booking_no='{$bookingNo}' WHERE booking_id=$last_id";
 
             if ($conn->query($sql)) {
-                $sql = "SELECT * FROM natc_destination_rates WHERE dr_id={$_POST['destination']} limit 1";
-                $result = $conn->query($sql);
+                $sql_rate = "SELECT * FROM natc_destination_rates WHERE dr_id={$_POST['destination']} limit 1";
+                $result = $conn->query($sql_rate);
                 $res = $result->fetch_assoc();
 
                 $rate = 0;
@@ -40,11 +43,9 @@ if(isset($_POST)){
 
                 $confirmUrl = "https://natcback-production.up.railway.app/confirmBooking.php?bid={$last_id}";
                 
-                // Get API Keys from Railway Variables
                 $apiKey = getenv('MAILJET_API_KEY');
                 $apiSecret = getenv('MAILJET_SECRET_KEY');
 
-                // Prepare the Email Data
                 $postData = json_encode([
                     'Messages' => [[
                         'From' => [
@@ -52,23 +53,14 @@ if(isset($_POST)){
                             'Name' => 'NATC Booking'
                         ],
                         'To' => [
-                            ['Email' => $_POST['email'], 'Name' => $_POST['name']], // To the Customer
-                            ['Email' => 'andreicapili4@gmail.com'] // Copy to yourself
+                            ['Email' => $_POST['email'], 'Name' => $_POST['name']], 
+                            ['Email' => 'andreicapili4@gmail.com'] 
                         ],
                         'Subject' => 'Booking Confirmation - ' . $bookingNo,
-                        'HTMLPart' => "
-                            <h3>New Booking Received!</h3>
-                            <p><strong>Booking No:</strong> {$bookingNo}</p>
-                            <p><strong>Name:</strong> {$_POST['name']}</p>
-                            <p><strong>Pickup:</strong> {$_POST['pickup']}</p>
-                            <p><strong>Date:</strong> {$newDate}</p>
-                            <p><strong>Rate:</strong> {$rate} php</p>
-                            <br>
-                            <a href='{$confirmUrl}' style='background: green; color: white; padding: 10px; text-decoration: none;'>CONFIRM BOOKING</a>"
+                        'HTMLPart' => "<h3>New Booking Received!</h3><p>Booking No: {$bookingNo}</p><p>Rate: {$rate} php</p><br><a href='{$confirmUrl}'>CONFIRM BOOKING</a>"
                     ]]
                 ]);
 
-                // Send via cURL (more reliable on Railway than file_get_contents)
                 $ch = curl_init('https://api.mailjet.com/v3.1/send');
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
@@ -79,9 +71,16 @@ if(isset($_POST)){
                 ]);
 
                 $response = curl_exec($ch);
+                
+                // CRITICAL DEBUG: This will show the Mailjet error in your Railway Deploy Logs
+                if ($response === false) {
+                    error_log("cURL Error: " . curl_error($ch));
+                } else {
+                    error_log("Mailjet Response: " . $response);
+                }
+                
                 curl_close($ch);
 
-                // Redirect to success page
                 header('Location: https://natc-production.up.railway.app/bookingSuccess.php?bid='.$last_id);
                 exit;
             }
