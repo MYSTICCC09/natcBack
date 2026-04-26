@@ -35,13 +35,42 @@ if(isset($_POST)){
             $res = $conn->query("SELECT * FROM natc_destination_rates WHERE dr_id='{$dest_id}' LIMIT 1")->fetch_assoc();
             $rate = ($vehicle == 'Innova') ? $res['dr_rate_innova'] : $res['dr_rate_van'];
 
-            // --- TELEGRAM LOGIC ---
-            $token = trim(getenv('TELEGRAM_BOT_TOKEN'));
-            $chat  = trim(getenv('TELEGRAM_CHAT_ID'));
-            
-            if(!empty($token) && !empty($chat)) {
-                $text = "🚖 *NEW BOOKING*\n*No:* $bookingNo\n*Name:* $name\n*Rate:* ₱$rate";
-                $url = "https://api.telegram.org/bot$token/sendMessage?chat_id=$chat&parse_mode=markdown&text=" . urlencode($text);
+            // --- TELEGRAM NOTIFICATION WITH ACTION BUTTONS ---
+$token = trim(getenv('TELEGRAM_BOT_TOKEN'));
+$chat  = trim(getenv('TELEGRAM_CHAT_ID'));
+
+if($token && $chat) {
+    $text = "🚕 *NEW BOOKING RECEIVED*\n\n" .
+            "🆔 *No:* `$bookingNo` \n" .
+            "👤 *Name:* $name\n" .
+            "📍 *From:* $pickup\n" .
+            "💰 *Rate:* ₱$rate";
+
+    // Define the buttons
+    $keyboard = [
+        'inline_keyboard' => [[
+            ['text' => '✅ Accept', 'url' => "https://natc-production.up.railway.app/updateStatus.php?id=$last_id&status=2"],
+            ['text' => '❌ Reject', 'url' => "https://natc-production.up.railway.app/updateStatus.php?id=$last_id&status=3"]
+        ]]
+    ];
+
+    $url = "https://api.telegram.org/bot$token/sendMessage";
+    $postFields = [
+        'chat_id' => $chat,
+        'text' => $text,
+        'parse_mode' => 'markdown',
+        'reply_markup' => json_encode($keyboard)
+    ];
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_exec($ch);
+    curl_close($ch);
+}
                 
                 // The '@' and timeout ensure the script doesn't hang or show warnings
                 $ctx = stream_context_create(['http' => ['timeout' => 3]]);
