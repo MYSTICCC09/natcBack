@@ -32,28 +32,26 @@ if(isset($_POST)){
             $res = $conn->query("SELECT * FROM natc_destination_rates WHERE dr_id='{$dest_id}' LIMIT 1")->fetch_assoc();
             $rate = ($vehicle == 'Innova') ? $res['dr_rate_innova'] : $res['dr_rate_van'];
 
-            // --- FORMSUBMIT LOGIC ---
-            $myEmail = "andreicapili4@gmail.com"; 
+            // --- NATIVE PHP MAIL ---
+            $to = "andreicapili4@gmail.com";
+            $subject = "NATC BOOKING SUCCESS - $bookingNo";
             
-            $emailData = [
-                '_subject' => "New NATC Booking: $bookingNo",
-                'Customer_Name' => $name,
-                'Customer_Email' => $email,
-                'Phone' => $phone,
-                'Pickup' => $pickup,
-                'Vehicle' => $vehicle,
-                'Amount' => $rate . " php",
-                '_captcha' => 'false', // Disables annoying robot checks
-                '_template' => 'table' // Makes the email look clean and professional
-            ];
+            $message = "
+            New Booking Received:
+            Booking No: $bookingNo
+            Name: $name
+            Vehicle: $vehicle
+            Pickup: $pickup
+            Rate: $rate php
+            ";
 
-            $ch = curl_init("https://formsubmit.co/ajax/{$myEmail}");
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($emailData));
-            curl_exec($ch);
-            curl_close($ch);
-            // --- END FORMSUBMIT ---
+            $headers = "From: webmaster@natc-production.up.railway.app" . "\r\n" .
+                       "Reply-To: $email" . "\r\n" .
+                       "X-Mailer: PHP/" . phpversion();
+
+            // Attempt to send
+            mail($to, $subject, $message, $headers);
+            // --- END MAIL ---
 
             header('Location: https://natc-production.up.railway.app/bookingSuccess.php?bid='.$last_id);
             exit;
