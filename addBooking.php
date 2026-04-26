@@ -9,6 +9,24 @@ if(isset($_POST)){
 
     $conn = new mysqli($servername, $username, $password, $dbname, $port);
 
+    // Send email via FormSubmit API
+$emailData = json_encode([
+    'name' => $_POST['name'],
+    'email' => $_POST['email'],
+    'message' => "Your booking {$bookingNo} has been confirmed! Vehicle: {$_POST['vehicle']}, Date: {$newDate}, Rate: {$rate} php"
+]);
+
+$ch = curl_init('https://formsubmit.co/ajax/' . $_POST['email']);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $emailData);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Content-Type: application/json',
+    'Accept: application/json'
+]);
+curl_exec($ch);
+curl_close($ch);
+
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     } else {
