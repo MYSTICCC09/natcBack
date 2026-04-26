@@ -38,33 +38,39 @@ if(isset($_POST)){
                 if($_POST['vehicle'] == 'Innova') $rate = $res['dr_rate_innova'];
                 if($_POST['vehicle'] == 'Van') $rate = $res['dr_rate_van'];
 
-                // Send notification to admin
                 $confirmUrl = "https://natcback-production.up.railway.app/confirmBooking.php?bid={$last_id}";
-                $emailData = http_build_query([
-                    'name'     => 'NATC Admin',
-                    'email'    => 'andreicapili4@gmail.com',
-                    '_subject' => 'New Booking - ' . $bookingNo,
-                    'message'  => "New booking received!
-                Booking No: {$bookingNo}
-                Name: {$_POST['name']}
-                Phone: {$_POST['phone']}
-                Email: {$_POST['email']}
-                Vehicle: {$_POST['vehicle']}
-                Pickup: {$_POST['pickup']}
-                Date: {$newDate}
-                Rate: {$rate} php
+                $apiKey = getenv('MAILJET_API_KEY');
+                $apiSecret = getenv('MAILJET_SECRET_KEY');
 
-                CLICK TO CONFIRM: {$confirmUrl}"
+                $postData = json_encode([
+                    'Messages' => [[
+                        'From' => ['Email' => 'andreicapili4@gmail.com', 'Name' => 'NATC Booking'],
+                        'To' => [
+                            ['Email' => 'andreicapili4@gmail.com'],
+                            ['Email' => 'andreinituyacapili@gmail.com']
+                        ],
+                        'Subject' => 'New Booking - ' . $bookingNo,
+                        'TextPart' => "New booking!
+Booking No: {$bookingNo}
+Name: {$_POST['name']}
+Phone: {$_POST['phone']}
+Vehicle: {$_POST['vehicle']}
+Pickup: {$_POST['pickup']}
+Date: {$newDate}
+Rate: {$rate} php
+CONFIRM: {$confirmUrl}"
+                    ]]
                 ]);
+
                 $opts = [
-                'http' => [
-                    'method'  => 'POST',
-                    'header'  => 'Content-Type: application/x-www-form-urlencoded',
-                    'content' => $emailData
-                ]
-            ];
-            $context = stream_context_create($opts);
-            @file_get_contents('https://formsubmit.co/andreicapili4@gmail.com', false, $context);
+                    'http' => [
+                        'method'  => 'POST',
+                        'header'  => "Content-Type: application/json\r\nAuthorization: Basic " . base64_encode("{$apiKey}:{$apiSecret}"),
+                        'content' => $postData
+                    ]
+                ];
+                $context = stream_context_create($opts);
+                @file_get_contents('https://api.mailjet.com/v3.1/send', false, $context);
 
                 header('Location: https://natc-production.up.railway.app/bookingSuccess.php?bid='.$last_id);
                 exit;
