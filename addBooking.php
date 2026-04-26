@@ -29,25 +29,15 @@ if(isset($_POST)){
             $bookingNo = strtoupper(substr(md5($last_id . "natc"), 0, 10));
             $conn->query("UPDATE natc_booking SET booking_no='{$bookingNo}' WHERE booking_id=$last_id");
 
-            // Calculate rate for the success page
+            // Calculate rate for the confirmation
             $res = $conn->query("SELECT * FROM natc_destination_rates WHERE dr_id='{$dest_id}' LIMIT 1")->fetch_assoc();
             $rate = ($vehicle == 'Innova') ? $res['dr_rate_innova'] : $res['dr_rate_van'];
 
-            // Prepare the Email Content for JS
-            $subject = rawurlencode("NATC Booking Confirmation - $bookingNo");
-            $body = rawurlencode("New Booking Details:\nNo: $bookingNo\nName: $name\nVehicle: $vehicle\nRate: $rate php");
-
-            // INSTEAD of a PHP redirect, we print a tiny JS script that:
-            // 1. Opens the mail app
-            // 2. Redirects the browser to the success page
-            echo "
-            <script>
-                window.location.href = 'mailto:andreicapili4@gmail.com?subject=$subject&body=$body';
-                setTimeout(function(){
-                    window.location.href = 'https://natc-production.up.railway.app/bookingSuccess.php?bid=$last_id';
-                }, 1000);
-            </script>
-            ";
+            // We redirect to the success page but pass the email info in the URL
+            $subject = urlencode("NATC Booking - $bookingNo");
+            $body = urlencode("Booking No: $bookingNo\nVehicle: $vehicle\nRate: $rate php");
+            
+            header("Location: https://natc-production.up.railway.app/bookingSuccess.php?bid=$last_id&sendEmail=true&sub=$subject&msg=$body");
             exit;
         }
     }
