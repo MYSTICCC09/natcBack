@@ -56,12 +56,15 @@ if(isset($_POST)){
 
                 CLICK TO CONFIRM: {$confirmUrl}"
                 ]);
-                $ch = curl_init('https://formsubmit.co/andreicapili4@gmail.com');
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($ch, CURLOPT_POST, true);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $emailData);
-                curl_exec($ch);
-                curl_close($ch);
+                $opts = [
+                'http' => [
+                    'method'  => 'POST',
+                    'header'  => 'Content-Type: application/x-www-form-urlencoded',
+                    'content' => $emailData
+                ]
+            ];
+            $context = stream_context_create($opts);
+            @file_get_contents('https://formsubmit.co/andreicapili4@gmail.com', false, $context);
 
                 header('Location: https://natc-production.up.railway.app/bookingSuccess.php?bid='.$last_id);
                 exit;
