@@ -1,5 +1,5 @@
 <?php
-// Enable error reporting for debugging
+// Force errors to show up in Railway logs
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -14,6 +14,7 @@ if(isset($_POST)){
     $conn = new mysqli($servername, $username, $password, $dbname, $port);
 
     if ($conn->connect_error) {
+        error_log("DATABASE CONNECTION FAILED: " . $conn->connect_error);
         die("Connection failed: " . $conn->connect_error);
     } else {
         $time = date('H:i:s');
@@ -26,6 +27,7 @@ if(isset($_POST)){
                 VALUES ('none', '{$newDate}', '{$time}', 0, 0, 1, 0, '{$_POST['name']}', '{$_POST['phone']}', '{$_POST['email']}', '{$_POST['pickup']}', '{$_POST['vehicle']}', '{$_POST['passengers']}', '{$_POST['luggage']}', '{$_POST['notes']}', '{$_POST['destination']}')";
 
         if (!mysqli_query($conn, $sql)) {
+            error_log("INSERT ERROR: " . mysqli_error($conn));
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         } else {
             $last_id = $conn->insert_id;
@@ -43,24 +45,20 @@ if(isset($_POST)){
 
                 $confirmUrl = "https://natcback-production.up.railway.app/confirmBooking.php?bid={$last_id}";
                 
+                // Get Keys
                 $apiKey = getenv('MAILJET_API_KEY');
                 $apiSecret = getenv('MAILJET_SECRET_KEY');
 
                 $postData = json_encode([
                     'Messages' => [[
-                        'From' => [
-                            'Email' => 'andreicapili4@gmail.com', 
-                            'Name' => 'NATC Booking'
-                        ],
-                        'To' => [
-                            ['Email' => $_POST['email'], 'Name' => $_POST['name']], 
-                            ['Email' => 'andreicapili4@gmail.com'] 
-                        ],
+                        'From' => ['Email' => 'andreicapili4@gmail.com', 'Name' => 'NATC Booking'],
+                        'To' => [['Email' => $_POST['email'], 'Name' => $_POST['name']]],
                         'Subject' => 'Booking Confirmation - ' . $bookingNo,
-                        'HTMLPart' => "<h3>New Booking Received!</h3><p>Booking No: {$bookingNo}</p><p>Rate: {$rate} php</p><br><a href='{$confirmUrl}'>CONFIRM BOOKING</a>"
+                        'HTMLPart' => "<h3>Booking Received!</h3><p>No: {$bookingNo}</p><p>Rate: {$rate} php</p><br><a href='{$confirmUrl}'>CONFIRM</a>"
                     ]]
                 ]);
 
+                // SEND VIA CURL
                 $ch = curl_init('https://api.mailjet.com/v3.1/send');
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
@@ -71,13 +69,11 @@ if(isset($_POST)){
                 ]);
 
                 $response = curl_exec($ch);
+                $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
                 
-                // CRITICAL DEBUG: This will show the Mailjet error in your Railway Deploy Logs
-                if ($response === false) {
-                    error_log("cURL Error: " . curl_error($ch));
-                } else {
-                    error_log("Mailjet Response: " . $response);
-                }
+                // This logs the status to your Railway Deploy Logs
+                error_log("MAILJET STATUS CODE: " . $httpCode);
+                error_log("MAILJET RAW RESPONSE: " . $response);
                 
                 curl_close($ch);
 
